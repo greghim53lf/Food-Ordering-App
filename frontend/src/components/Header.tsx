@@ -1,16 +1,24 @@
 import { Link } from "react-router-dom";
+import MobileNav from "./MobileNav";
+import MainNav from "./MainNav";
 
 export default function Header() {
   return (
-    <div className="border-b-2 border-b-lime-600 py-6">
+    <header className="border-b-2 border-b-lime-600 py-6 shadow-2xl">
       <div className="container mx-auto flex justify-between items-center">
         <Link
           to="/"
-          className="text-3xl font-bold tracking-tight text-lime-600"
+          className="text-3xl text-lime-700 font-bold italic font-serif tracking-tight"
         >
           Greenie
         </Link>
+        <div className="md:hidden">
+          <MobileNav />
+        </div>
+        <div className="hidden md:block">
+          <MainNav />
+        </div>
       </div>
-    </div>
+    </header>
   );
 }
