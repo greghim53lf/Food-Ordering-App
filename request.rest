@@ -1,0 +1,9 @@
+@url = http://localhost:3000
+
+POST {{url}}/api/my/user
+Content-Type: application/json
+
+{
+    "auth0Id": "34535esdfd",
+    "email": "greghim53lf@gmail.com" 
+}
