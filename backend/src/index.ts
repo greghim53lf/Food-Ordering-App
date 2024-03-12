@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string).then(() => {
   console.log("Connected to datbase");
 });
 
-app.use("/api/user", userRouter);
+app.use("/api/my/user", userRouter);
 
 app.get("/", async (req: Request, res: Response) => {
   res.json({ message: "Food Ordering App" });
