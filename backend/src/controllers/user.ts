@@ -15,7 +15,21 @@ export const createUser = async (req: Request, res: Response) => {
 
     res.status(201).json(newUser.toObject());
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: "Error creating user" });
+  }
+};
+
+export const getUser = async (req: Request, res: Response) => {
+  try {
+    const currentUser = await User.findOne({ _id: req.userId });
+    if (!currentUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    res.json(currentUser);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Something went wrong" });
   }
 };
 
@@ -37,6 +51,7 @@ export const updateUser = async (req: Request, res: Response) => {
 
     res.send(user);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: "Error updating user" });
   }
 };
