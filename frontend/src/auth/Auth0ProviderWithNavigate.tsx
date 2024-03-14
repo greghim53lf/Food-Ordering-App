@@ -9,14 +9,14 @@ const {
   VITE_AUTH0_DOMAIN,
   VITE_AUTH0_CLIENT_ID,
   VITE_AUTH0_CALLBACK_URL,
-  AUTH0_AUDIENCE,
+  VITE_AUTH0_AUDIENCE,
 } = import.meta.env;
 
 export default function Auth0ProviderWithNavigate({ children }: Props) {
   const domain = VITE_AUTH0_DOMAIN;
   const clientID = VITE_AUTH0_CLIENT_ID;
   const redirect_uri = VITE_AUTH0_CALLBACK_URL;
-  const audience = AUTH0_AUDIENCE;
+  const audience = VITE_AUTH0_AUDIENCE;
 
   const navigate = useNavigate();
 
