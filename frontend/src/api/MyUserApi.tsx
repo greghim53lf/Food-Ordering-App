@@ -24,11 +24,7 @@ export const useCreateUser = () => {
     });
 
     if (!response.ok) {
-      response.json().then((error) => {
-        console.log(error);
-
-        throw new Error(error.message);
-      });
+      throw new Error("Failed to create user");
     }
   };
 
@@ -40,4 +36,45 @@ export const useCreateUser = () => {
   } = useMutation(createUserRequest);
 
   return { createUser, isLoading, isError, isSuccess };
+};
+
+type updateUserRequest = {
+  name: string;
+  addressLine1: string;
+  city: string;
+  country: string;
+};
+
+export const useUpdateUser = () => {
+  const { getAccessTokenSilently } = useAuth0();
+
+  const updateUserRequest = async (formData: updateUserRequest) => {
+    const accessToken = await getAccessTokenSilently();
+
+    const response = await fetch(`${API_BASE_URL}/api/my/user`, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to update user");
+    }
+
+    return response.json();
+  };
+
+  const {
+    mutateAsync: updateUser,
+    isLoading,
+    isError,
+    error,
+    isSuccess,
+    reset,
+  } = useMutation(updateUserRequest);
+
+  return { updateUser, isLoading, isError, error, isSuccess, reset };
 };
