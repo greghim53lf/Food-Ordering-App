@@ -6,7 +6,7 @@ const menuItemSchema = new Schema({
   price: { type: Number, required: true },
 });
 
-const restaurantSchema = new Schema({
+const storeSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: "User",
@@ -31,11 +31,11 @@ const restaurantSchema = new Schema({
     type: String,
     required: true,
   },
-  cuisines: [{ type: String, required: true }],
+  categories: [{ type: String, required: true }],
   menuItems: [menuItemSchema],
   imageUrl: { type: String, required: true },
   lastUpdated: { type: Date, required: true },
 });
 
-const Restaurant = model("Restaurant", restaurantSchema);
-export default Restaurant;
+const Store = model("Store", storeSchema);
+export default Store;

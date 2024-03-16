@@ -41,9 +41,9 @@ app.get("/health", async (req: Request, res: Response) => {
 import userRouter from "./routes/user";
 app.use("/api/my/user", userRouter);
 
-// restaurant router
-import restaurantRouter from "./routes/restaurant";
-app.use("/api/my/restaurant", restaurantRouter);
+// store router
+import storetRouter from "./routes/store";
+app.use("/api/my/store", storetRouter);
 
 // listen for request on the server
 app.listen(3000, () => {

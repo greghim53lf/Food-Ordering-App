@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import AuthCallbackPage from "./pages/AuthCallbackPage";
 import UserProflePage from "./pages/UserProflePage";
 import ProtectedRoute from "./api/ProtectedRoute";
+import ManageStorePage from "./pages/ManageStorePage";
 
 const AppRoutes = () => {
   return (
@@ -23,6 +24,14 @@ const AppRoutes = () => {
           element={
             <Layout>
               <UserProflePage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/manage-store"
+          element={
+            <Layout>
+              <ManageStorePage />
             </Layout>
           }
         />

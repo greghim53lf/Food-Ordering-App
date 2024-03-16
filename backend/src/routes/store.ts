@@ -1,13 +1,13 @@
-// restaurant router
+// store router
 import { Router } from "express";
-const restaurantRouter = Router();
+const storeRouter = Router();
 
 // controllers for routes
-import { createRestaurant } from "../controllers/restaurant";
+import { createStore } from "../controllers/store";
 
 // auth and validation middlewares
 import { jwtCheck, jwtParse } from "../middleware/auth";
-import { validateRestaurantRequest } from "../middleware/validation";
+import { validateStoreRequest } from "../middleware/validation";
 
 // multer middleware for images
 import multer from "multer";
@@ -20,13 +20,13 @@ const upload = multer({
 });
 
 // routes and methods
-restaurantRouter.post(
+storeRouter.post(
   "/",
   jwtCheck,
   jwtParse,
-  validateRestaurantRequest,
+  validateStoreRequest,
   upload.single("imageFile"),
-  createRestaurant
+  createStore
 );
 
-export default restaurantRouter;
+export default storeRouter;

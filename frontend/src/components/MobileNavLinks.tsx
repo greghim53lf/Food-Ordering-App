@@ -8,6 +8,12 @@ export default function MobileNavLinks() {
   return (
     <>
       <Link
+        to="/manage-store"
+        className="flex bg-white items-center font-bold hover:text-lime-600"
+      >
+        Manage Store
+      </Link>
+      <Link
         to="/user-profile"
         className="flex bg-white items-center font-bold hover:text-lime-600"
       >

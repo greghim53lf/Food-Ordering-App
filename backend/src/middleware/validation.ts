@@ -24,7 +24,7 @@ export const validateUserRequest = [
   handleValidationErrors,
 ];
 
-export const validateRestaurantRequest = [
+export const validateStoreRequest = [
   body("name").isString().notEmpty().withMessage("Name must be a string"),
   body("city").isString().notEmpty().withMessage("City must be a string"),
   body("country").isString().notEmpty().withMessage("Country must be a string"),
@@ -36,12 +36,12 @@ export const validateRestaurantRequest = [
     .isInt({ min: 0 })
     .notEmpty()
     .withMessage("Estimated Delivery Time must be a positive integer"),
-  body("cuisines")
+  body("categories")
     .isArray()
-    .withMessage("Cuisines must be an array")
+    .withMessage("Categories must be an array")
     .not()
     .isEmpty()
-    .withMessage("Cuisines array cannot be empty"),
+    .withMessage("Categories array cannot be empty"),
   body("menuItems")
     .isArray()
     .withMessage("Menu Items must be an array")
